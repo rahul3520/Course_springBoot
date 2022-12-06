@@ -18,7 +18,7 @@ public class CourseController {
         System.out.println(c.getCourseDate().toString());
         System.out.println(c.getCourseVenue().toString());
 
-        return "add student page";
+        return "add course page";
     }
 
 
