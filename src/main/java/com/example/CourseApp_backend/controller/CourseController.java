@@ -1,6 +1,7 @@
 package com.example.CourseApp_backend.controller;
 
 import com.example.CourseApp_backend.model.Course;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -9,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class CourseController {
 
     @PostMapping(path = "/add",produces = "application/json",consumes = "application/json")
-    public String addStudent(@RequestBody Course c)
+    public String addCourse(@RequestBody Course c)
     {
         System.out.println(c.toString());
         System.out.println(c.getCourseTitle().toString());
@@ -18,7 +19,13 @@ public class CourseController {
         System.out.println(c.getCourseDate().toString());
         System.out.println(c.getCourseVenue().toString());
 
-        return "add student page";
+        return "add course page";
+    }
+
+    @GetMapping("/view")
+    public String viewCourse()
+    {
+        return "view course page";
     }
 
 
