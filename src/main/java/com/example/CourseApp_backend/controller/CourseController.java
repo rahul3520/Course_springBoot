@@ -5,6 +5,7 @@ import com.example.CourseApp_backend.model.Course;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
 
 @RestController
@@ -15,8 +16,10 @@ public class CourseController {
 
     @CrossOrigin(origins = "*")
     @PostMapping(path = "/add",produces = "application/json",consumes = "application/json")
-    public String addCourse(@RequestBody Course c)
+    public HashMap<String,String> addCourse(@RequestBody Course c)
     {
+        HashMap<String,String> map=new HashMap<>();
+
         System.out.println(c.toString());
         System.out.println(c.getCourseTitle().toString());
         System.out.println(c.getCourseDescription().toString());
@@ -26,7 +29,9 @@ public class CourseController {
 
         dao.save(c);
 
-        return "add course page";
+        map.put("status","success");
+
+        return map;
     }
 
     @CrossOrigin(origins="*")
